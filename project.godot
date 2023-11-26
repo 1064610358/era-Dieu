@@ -1,0 +1,64 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="era Dieu"
+run/main_scene="res://场景/开始界面/开始界面.tscn"
+config/features=PackedStringArray("4.1", "GL Compatibility")
+config/icon="res://icon.svg"
+
+[autoload]
+
+Player="*res://全局脚本/player.gd"
+ChangeScene="*res://全局脚本/change_scene.tscn"
+GGS="*res://addons/ggs/classes/ggs_globals.gd"
+GuiTransitions="*res://addons/simple-gui-transitions/singleton.gd"
+DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+InteractiveSceneChanger="*res://addons/interactive_scene_changer/InteractiveSceneChanger.gd"
+
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/handheld/orientation=6
+
+[dotnet]
+
+project/assembly_name="era Dieu"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/ColorPreview/plugin.cfg", "res://addons/FileSystemView/plugin.cfg", "res://addons/csv-data-importer/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg", "res://addons/editor_icon_previewer/plugin.cfg", "res://addons/gdscript_sections/plugin.cfg", "res://addons/gui_auto_layout/plugin.cfg", "res://addons/interactive_scene_changer/plugin.cfg", "res://addons/scrolllistcontainer/plugin.cfg", "res://addons/simple-gui-transitions/plugin.cfg", "res://addons/ui_design_tool/plugin.cfg")
+
+[gui_transitions]
+
+config/default/auto_start=true
+config/default/fade_layout=true
+config/default/center_pivot=true
+config/default/duration=0.5
+config/default/delay=0.5
+config/default/transition_type="QUAD"
+config/default/ease_type="IN_OUT"
+config/default/animation_enter=4
+config/default/animation_leave=4
+
+[input]
+
+"点击"={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
+]
+}
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

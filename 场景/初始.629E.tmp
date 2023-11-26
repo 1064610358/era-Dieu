@@ -1,0 +1,1082 @@
+[gd_scene load_steps=22 format=3 uid="uid://80y20eabk8ld"]
+
+[ext_resource type="Texture2D" uid="uid://cgk6fae4vee3h" path="res://picture/bigmap/0.png" id="2_dxfwe"]
+[ext_resource type="Script" path="res://场景/初始.gd" id="2_ml45r"]
+[ext_resource type="Theme" uid="uid://cjjsowv3mavdh" path="res://ui主题/ui.tres" id="3_8pixj"]
+[ext_resource type="ButtonGroup" uid="uid://w7xbfxu4qp38" path="res://ui主题/按钮组/初始选择页按键.tres" id="5_virfo"]
+[ext_resource type="Texture2D" uid="uid://dirtjatbe7l3i" path="res://内置素材/new folder/随机数黑框白底.png" id="6_arpee"]
+[ext_resource type="Theme" uid="uid://rw1sx6svwe7i" path="res://ui主题/初始选择ui.tres" id="6_lmo01"]
+[ext_resource type="FontFile" uid="uid://cnmc8cuhqpb1d" path="res://字体/江城斜黑体 400W.ttf" id="7_5chab"]
+[ext_resource type="Theme" uid="uid://ceqqrq7cga582" path="res://ui主题/初始选择注释部分ui.tres" id="8_j8avv"]
+[ext_resource type="ButtonGroup" uid="uid://b3f3vni2lh5n1" path="res://ui主题/按钮组/名字形式.tres" id="8_vxp1x"]
+[ext_resource type="ButtonGroup" uid="uid://daxu6i2kyx2ta" path="res://ui主题/按钮组/主角性别组.tres" id="9_f8nrh"]
+[ext_resource type="ButtonGroup" uid="uid://bpokqg8he7c0h" path="res://ui主题/按钮组/信仰按钮.tres" id="11_ub1bx"]
+[ext_resource type="ButtonGroup" uid="uid://sg5dqfbnde87" path="res://ui主题/按钮组/种族选择按钮组.tres" id="11_umimb"]
+[ext_resource type="ButtonGroup" uid="uid://c4j48cau2nlho" path="res://ui主题/按钮组/发色选择组.tres" id="13_ikimh"]
+[ext_resource type="ButtonGroup" uid="uid://4wk7wdwhwo5s" path="res://ui主题/按钮组/瞳色选择组.tres" id="14_vxuct"]
+[ext_resource type="ButtonGroup" uid="uid://bnjry5l0aif5j" path="res://ui主题/按钮组/肤色选择组.tres" id="15_2vi8p"]
+[ext_resource type="ButtonGroup" uid="uid://cedadxh0vltjm" path="res://ui主题/按钮组/身材选择组.tres" id="16_pola4"]
+[ext_resource type="ButtonGroup" uid="uid://cj34wpnglp4gg" path="res://ui主题/按钮组/性向选择.tres" id="17_ebggq"]
+[ext_resource type="Theme" uid="uid://chqma6v0f4fla" path="res://ui主题/初始选择ui-20px.tres" id="17_lh778"]
+[ext_resource type="ButtonGroup" uid="uid://ckfq0dsoog5qd" path="res://ui主题/按钮组/出身选择组.tres" id="18_5vt3n"]
+[ext_resource type="ButtonGroup" uid="uid://d1n78smn883me" path="res://ui主题/按钮组/身份选择组.tres" id="19_k823t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_la3xp"]
+bg_color = Color(0.988235, 0.905882, 0.823529, 0.105882)
+border_width_left = 10
+border_color = Color(0.996078, 0.996078, 0.996078, 0.988235)
+border_blend = true
+
+[node name="初始" type="TextureRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_8pixj")
+texture = ExtResource("2_dxfwe")
+expand_mode = 1
+script = ExtResource("2_ml45r")
+
+[node name="警告" type="AcceptDialog" parent="."]
+title = "未选择"
+position = Vector2i(0, 36)
+size = Vector2i(500, 500)
+dialog_text = "部分选项未选"
+
+[node name="MarginContainer3" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="选择页" type="MarginContainer" parent="MarginContainer3"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer3/选择页"]
+custom_minimum_size = Vector2(120, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="全部随机" type="TextureButton" parent="MarginContainer3/选择页/VBoxContainer2"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme = ExtResource("3_8pixj")
+texture_normal = ExtResource("6_arpee")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer3/选择页"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="基础属性" type="Button" parent="MarginContainer3/选择页/VBoxContainer"]
+layout_mode = 2
+toggle_mode = true
+button_pressed = true
+button_group = ExtResource("5_virfo")
+text = "基础属性"
+
+[node name="外貌" type="Button" parent="MarginContainer3/选择页/VBoxContainer"]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("5_virfo")
+text = "外貌"
+
+[node name="特质" type="Button" parent="MarginContainer3/选择页/VBoxContainer"]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("5_virfo")
+text = "特质"
+
+[node name="其他属性" type="Button" parent="MarginContainer3/选择页/VBoxContainer"]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("5_virfo")
+text = "其他属性"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer3/选择页"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="确定" type="Button" parent="MarginContainer3/选择页/VBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+text = "确定"
+
+[node name="文本框" type="MarginContainer" parent="MarginContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ColorRect" type="Panel" parent="MarginContainer3/文本框"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_la3xp")
+
+[node name="基础属性文本框" type="ScrollContainer" parent="MarginContainer3/文本框"]
+visible = false
+layout_mode = 2
+theme = ExtResource("6_lmo01")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer3/文本框/基础属性文本框"]
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer3/文本框/基础属性文本框/VBoxContainer"]
+layout_mode = 2
+
+[node name="选择页名" type="Label" parent="MarginContainer3/文本框/基础属性文本框/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(550, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 35
+text = "基础属性"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="基础页随机" type="TextureButton" parent="MarginContainer3/文本框/基础属性文本框/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("6_arpee")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="性别框" type="VBoxContainer" parent="MarginContainer3/文本框/基础属性文本框/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer3/文本框/基础属性文本框/VBoxContainer/性别框"]
+custom_minimum_size = Vector2(900, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="选择主角性别" type="Label" parent="MarginContainer3/文本框/基础属性文本框/VBoxContainer/性别框/HBoxContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "你的性别是"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer3/文本框/基础属性文本框/VBoxContainer/性别框/HBoxContainer"]
+custom_minimum_size = Vector2(450, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/separation = 10
+
+[node name="男性" type="Button" parent="MarginContainer3/文本框/基础属性文本框/VBoxContainer/性别框/HBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(100, 10)
+layout_mode = 2
+size_flags_vertical = 4
+toggle_mode = true
+button_group = ExtResource("9_f8nrh")
+text = "男性"
+
+[node name="女性" type="Button" parent="MarginContainer3/文本框/基础属性文本框/VBoxContainer/性别框/HBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 4
+toggle_mode = true
+keep_pressed_outside = true
+button_group = ExtResource("9_f8nrh")
+text = "女性"
+
+[node name="双性" type="Button" parent="MarginContainer3/文本框/基础属性文本框/VBoxContainer/性别框/HBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 4
+toggle_mode = true
+button_group = ExtResource("9_f8nrh")
+text = "双性"
+
+[node name="扶她" type="Button" parent="MarginContainer3/文本框/基础属性文本框/VBoxContainer/性别框/HBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 4
+toggle_mode = true
+button_group = ExtResource("9_f8nrh")
+text = "扶她"
+
+[node name="性别注释" type="Label" parent="MarginContainer3/文本框/基础属性文本框/VBoxContainer/性别框/HBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.976471, 0.694118, 0.305882, 1)
+theme_override_fonts/font = ExtResource("7_5chab")
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="性向框" type="HBoxContainer" parent="MarginContainer3/文本框/基础属性文本框/VBoxContainer"]
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="性向" type="Label" parent="MarginContainer3/文本框/基础属性文本框/VBoxContainer/性向框"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+text = "你的性向是"
+
+[node name="性向按钮组" type="GridContainer" parent="MarginContainer3/文本框/基础属性文本框/VBoxContainer/性向框"]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+columns = 5
+
+[node name="性向选择一" type="Button" parent="MarginContainer3/文本框/基础属性文本框/VBoxContainer/性向框/性向按钮组"]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("17_ebggq")
+
+[node name="性向注释" type="RichTextLabel" parent="MarginContainer3/文本框/基础属性文本框/VBoxContainer/性向框"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource("8_j8avv")
+
+[node name="年龄框" type="VBoxContainer" parent="MarginContainer3/文本框/基础属性文本框/VBoxContainer"]
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="年龄选择框" type="HBoxContainer" parent="MarginContainer3/文本框/基础属性文本框/VBoxContainer/年龄框"]
+custom_minimum_size = Vector2(920, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="年龄" type="Label" parent="MarginContainer3/文本框/基础属性文本框/VBoxContainer/年龄框/年龄选择框"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "你的年龄是"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="主角年龄" type="SpinBox" parent="MarginContainer3/文本框/基础属性文本框/VBoxContainer/年龄框/年龄选择框"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+alignment = 1
+
+[node name="年龄注释" type="Label" parent="MarginContainer3/文本框/基础属性文本框/VBoxContainer/年龄框/年龄选择框"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("8_j8avv")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="信仰框" type="VBoxContainer" parent="MarginContainer3/文本框/基础属性文本框/VBoxContainer"]
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer3/文本框/基础属性文本框/VBoxContainer/信仰框"]
+custom_minimum_size = Vector2(920, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="信仰" type="Label" parent="MarginContainer3/文本框/基础属性文本框/VBoxContainer/信仰框/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "你的信仰是"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="信仰选择" type="HBoxContainer" parent="MarginContainer3/文本框/基础属性文本框/VBoxContainer/信仰框/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="信仰一" type="Button" parent="MarginContainer3/文本框/基础属性文本框/VBoxContainer/信仰框/HBoxContainer/信仰选择"]
+custom_minimum_size = Vector2(100, 53)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+toggle_mode = true
+button_group = ExtResource("11_ub1bx")
+
+[node name="信仰二" type="Button" parent="MarginContainer3/文本框/基础属性文本框/VBoxContainer/信仰框/HBoxContainer/信仰选择"]
+custom_minimum_size = Vector2(100, 53)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+toggle_mode = true
+button_group = ExtResource("11_ub1bx")
+
+[node name="信仰三" type="Button" parent="MarginContainer3/文本框/基础属性文本框/VBoxContainer/信仰框/HBoxContainer/信仰选择"]
+custom_minimum_size = Vector2(100, 53)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+toggle_mode = true
+button_group = ExtResource("11_ub1bx")
+
+[node name="信仰注释" type="Label" parent="MarginContainer3/文本框/基础属性文本框/VBoxContainer/信仰框/HBoxContainer"]
+custom_minimum_size = Vector2(0, 55)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("8_j8avv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="种族框" type="VBoxContainer" parent="MarginContainer3/文本框/基础属性文本框/VBoxContainer"]
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("17_lh778")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer3/文本框/基础属性文本框/VBoxContainer/种族框"]
+layout_mode = 2
+
+[node name="种族" type="Label" parent="MarginContainer3/文本框/基础属性文本框/VBoxContainer/种族框/HBoxContainer"]
+custom_minimum_size = Vector2(140, 110)
+layout_mode = 2
+text = "你的种族是"
+
+[node name="种族组" type="GridContainer" parent="MarginContainer3/文本框/基础属性文本框/VBoxContainer/种族框/HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+columns = 4
+
+[node name="种族一" type="Button" parent="MarginContainer3/文本框/基础属性文本框/VBoxContainer/种族框/HBoxContainer/种族组"]
+custom_minimum_size = Vector2(100, 53)
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("11_umimb")
+
+[node name="种族注释" type="Label" parent="MarginContainer3/文本框/基础属性文本框/VBoxContainer/种族框/HBoxContainer"]
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("8_j8avv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="出身框" type="HBoxContainer" parent="MarginContainer3/文本框/基础属性文本框/VBoxContainer"]
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="出身" type="Label" parent="MarginContainer3/文本框/基础属性文本框/VBoxContainer/出身框"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+text = "你的出身是"
+
+[node name="出身按钮组" type="GridContainer" parent="MarginContainer3/文本框/基础属性文本框/VBoxContainer/出身框"]
+layout_mode = 2
+theme = ExtResource("17_lh778")
+columns = 4
+
+[node name="出身选择" type="Button" parent="MarginContainer3/文本框/基础属性文本框/VBoxContainer/出身框/出身按钮组"]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("18_5vt3n")
+
+[node name="出身注释" type="RichTextLabel" parent="MarginContainer3/文本框/基础属性文本框/VBoxContainer/出身框"]
+clip_contents = false
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource("8_j8avv")
+fit_content = true
+
+[node name="身份框" type="HBoxContainer" parent="MarginContainer3/文本框/基础属性文本框/VBoxContainer"]
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="身份" type="Label" parent="MarginContainer3/文本框/基础属性文本框/VBoxContainer/身份框"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+text = "你的身份是"
+
+[node name="身份按钮组" type="GridContainer" parent="MarginContainer3/文本框/基础属性文本框/VBoxContainer/身份框"]
+layout_mode = 2
+theme = ExtResource("17_lh778")
+columns = 4
+
+[node name="身份选择" type="Button" parent="MarginContainer3/文本框/基础属性文本框/VBoxContainer/身份框/身份按钮组"]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("19_k823t")
+
+[node name="身份注释" type="RichTextLabel" parent="MarginContainer3/文本框/基础属性文本框/VBoxContainer/身份框"]
+clip_contents = false
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource("8_j8avv")
+fit_content = true
+
+[node name="外貌文本框" type="ScrollContainer" parent="MarginContainer3/文本框"]
+visible = false
+clip_contents = false
+layout_mode = 2
+theme = ExtResource("6_lmo01")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer3/文本框/外貌文本框"]
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer3/文本框/外貌文本框/VBoxContainer"]
+layout_mode = 2
+
+[node name="外貌选择页名" type="Label" parent="MarginContainer3/文本框/外貌文本框/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(550, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 35
+text = "外貌"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="外貌页随机" type="TextureButton" parent="MarginContainer3/文本框/外貌文本框/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("6_arpee")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="外貌颜色框" type="VBoxContainer" parent="MarginContainer3/文本框/外貌文本框/VBoxContainer"]
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 10
+
+[node name="发色框" type="HBoxContainer" parent="MarginContainer3/文本框/外貌文本框/VBoxContainer/外貌颜色框"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="发色" type="Label" parent="MarginContainer3/文本框/外貌文本框/VBoxContainer/外貌颜色框/发色框"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "你的发色是"
+vertical_alignment = 1
+
+[node name="发色按钮组" type="GridContainer" parent="MarginContainer3/文本框/外貌文本框/VBoxContainer/外貌颜色框/发色框"]
+custom_minimum_size = Vector2(530, 120)
+layout_mode = 2
+size_flags_vertical = 4
+columns = 5
+
+[node name="发色按钮一" type="Button" parent="MarginContainer3/文本框/外貌文本框/VBoxContainer/外貌颜色框/发色框/发色按钮组"]
+custom_minimum_size = Vector2(100, 53)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+toggle_mode = true
+button_group = ExtResource("13_ikimh")
+icon_alignment = 1
+
+[node name="发色注释" type="RichTextLabel" parent="MarginContainer3/文本框/外貌文本框/VBoxContainer/外貌颜色框/发色框"]
+clip_contents = false
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource("8_j8avv")
+
+[node name="瞳色框" type="HBoxContainer" parent="MarginContainer3/文本框/外貌文本框/VBoxContainer/外貌颜色框"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="瞳色" type="Label" parent="MarginContainer3/文本框/外貌文本框/VBoxContainer/外貌颜色框/瞳色框"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "你的瞳色是"
+vertical_alignment = 1
+
+[node name="瞳色按钮组" type="GridContainer" parent="MarginContainer3/文本框/外貌文本框/VBoxContainer/外貌颜色框/瞳色框"]
+custom_minimum_size = Vector2(520, 140)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+columns = 5
+
+[node name="瞳色按钮一" type="Button" parent="MarginContainer3/文本框/外貌文本框/VBoxContainer/外貌颜色框/瞳色框/瞳色按钮组"]
+custom_minimum_size = Vector2(100, 53)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+toggle_mode = true
+button_group = ExtResource("14_vxuct")
+icon_alignment = 1
+
+[node name="瞳色注释" type="RichTextLabel" parent="MarginContainer3/文本框/外貌文本框/VBoxContainer/外貌颜色框/瞳色框"]
+clip_contents = false
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource("8_j8avv")
+
+[node name="肤色框" type="HBoxContainer" parent="MarginContainer3/文本框/外貌文本框/VBoxContainer/外貌颜色框"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="肤色" type="Label" parent="MarginContainer3/文本框/外貌文本框/VBoxContainer/外貌颜色框/肤色框"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "你的肤色是"
+vertical_alignment = 1
+
+[node name="肤色按钮组" type="GridContainer" parent="MarginContainer3/文本框/外貌文本框/VBoxContainer/外貌颜色框/肤色框"]
+custom_minimum_size = Vector2(530, 140)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 5
+
+[node name="肤色按钮一" type="Button" parent="MarginContainer3/文本框/外貌文本框/VBoxContainer/外貌颜色框/肤色框/肤色按钮组"]
+custom_minimum_size = Vector2(100, 53)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+toggle_mode = true
+button_group = ExtResource("15_2vi8p")
+icon_alignment = 1
+
+[node name="肤色注释" type="RichTextLabel" parent="MarginContainer3/文本框/外貌文本框/VBoxContainer/外貌颜色框/肤色框"]
+clip_contents = false
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource("8_j8avv")
+
+[node name="身材框" type="HBoxContainer" parent="MarginContainer3/文本框/外貌文本框/VBoxContainer/外貌颜色框"]
+layout_mode = 2
+
+[node name="身材" type="Label" parent="MarginContainer3/文本框/外貌文本框/VBoxContainer/外貌颜色框/身材框"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+text = "你的身材是"
+vertical_alignment = 1
+
+[node name="身材按钮组" type="GridContainer" parent="MarginContainer3/文本框/外貌文本框/VBoxContainer/外貌颜色框/身材框"]
+custom_minimum_size = Vector2(520, 55)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 5
+
+[node name="身材按钮一" type="Button" parent="MarginContainer3/文本框/外貌文本框/VBoxContainer/外貌颜色框/身材框/身材按钮组"]
+custom_minimum_size = Vector2(100, 53)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+toggle_mode = true
+button_group = ExtResource("16_pola4")
+icon_alignment = 1
+
+[node name="身材注释" type="RichTextLabel" parent="MarginContainer3/文本框/外貌文本框/VBoxContainer/外貌颜色框/身材框"]
+clip_contents = false
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource("8_j8avv")
+
+[node name="特质文本框" type="ScrollContainer" parent="MarginContainer3/文本框"]
+visible = false
+layout_mode = 2
+theme = ExtResource("6_lmo01")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer3/文本框/特质文本框"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer3/文本框/特质文本框/VBoxContainer"]
+layout_mode = 2
+
+[node name="特质选择页名" type="Label" parent="MarginContainer3/文本框/特质文本框/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(550, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 35
+text = "特质"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="特质页随机" type="TextureButton" parent="MarginContainer3/文本框/特质文本框/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("6_arpee")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="性怪癖" type="HBoxContainer" parent="MarginContainer3/文本框/特质文本框/VBoxContainer"]
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer3/文本框/特质文本框/VBoxContainer/性怪癖"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="性怪癖" type="Label" parent="MarginContainer3/文本框/特质文本框/VBoxContainer/性怪癖/VBoxContainer"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+text = "你的性怪癖是"
+vertical_alignment = 1
+
+[node name="性怪癖清除" type="Button" parent="MarginContainer3/文本框/特质文本框/VBoxContainer/性怪癖/VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "清除"
+
+[node name="性怪癖按钮集合" type="GridContainer" parent="MarginContainer3/文本框/特质文本框/VBoxContainer/性怪癖"]
+layout_mode = 2
+columns = 7
+
+[node name="性怪癖一" type="Button" parent="MarginContainer3/文本框/特质文本框/VBoxContainer/性怪癖/性怪癖按钮集合"]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+toggle_mode = true
+text = "同性厌恶症"
+
+[node name="性怪癖注释" type="RichTextLabel" parent="MarginContainer3/文本框/特质文本框/VBoxContainer"]
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("8_j8avv")
+fit_content = true
+
+[node name="性能力" type="HBoxContainer" parent="MarginContainer3/文本框/特质文本框/VBoxContainer"]
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer3/文本框/特质文本框/VBoxContainer/性能力"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="性能力" type="Label" parent="MarginContainer3/文本框/特质文本框/VBoxContainer/性能力/VBoxContainer"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "你的性能力是"
+vertical_alignment = 1
+
+[node name="性能力清除" type="Button" parent="MarginContainer3/文本框/特质文本框/VBoxContainer/性能力/VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "清除"
+
+[node name="性能力按钮集合" type="GridContainer" parent="MarginContainer3/文本框/特质文本框/VBoxContainer/性能力"]
+layout_mode = 2
+columns = 7
+
+[node name="性能力一" type="Button" parent="MarginContainer3/文本框/特质文本框/VBoxContainer/性能力/性能力按钮集合"]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+toggle_mode = true
+text = "同性厌恶症"
+
+[node name="性能力注释" type="RichTextLabel" parent="MarginContainer3/文本框/特质文本框/VBoxContainer"]
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("8_j8avv")
+fit_content = true
+
+[node name="症状" type="HBoxContainer" parent="MarginContainer3/文本框/特质文本框/VBoxContainer"]
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer3/文本框/特质文本框/VBoxContainer/症状"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="症状" type="Label" parent="MarginContainer3/文本框/特质文本框/VBoxContainer/症状/VBoxContainer"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "你的症状是"
+vertical_alignment = 1
+
+[node name="症状清除" type="Button" parent="MarginContainer3/文本框/特质文本框/VBoxContainer/症状/VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "清除"
+
+[node name="症状按钮集合" type="GridContainer" parent="MarginContainer3/文本框/特质文本框/VBoxContainer/症状"]
+layout_mode = 2
+columns = 7
+
+[node name="症状一" type="Button" parent="MarginContainer3/文本框/特质文本框/VBoxContainer/症状/症状按钮集合"]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+toggle_mode = true
+text = "同性厌恶症"
+
+[node name="症状注释" type="RichTextLabel" parent="MarginContainer3/文本框/特质文本框/VBoxContainer"]
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("8_j8avv")
+fit_content = true
+
+[node name="其他属性文本框" type="ScrollContainer" parent="MarginContainer3/文本框"]
+layout_mode = 2
+theme = ExtResource("6_lmo01")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer3/文本框/其他属性文本框"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer3/文本框/其他属性文本框/VBoxContainer"]
+layout_mode = 2
+
+[node name="其他属性选择页名" type="Label" parent="MarginContainer3/文本框/其他属性文本框/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(550, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 35
+text = "其他属性"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="其他属性页随机" type="TextureButton" parent="MarginContainer3/文本框/其他属性文本框/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("6_arpee")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="关系框" type="VBoxContainer" parent="MarginContainer3/文本框/其他属性文本框/VBoxContainer"]
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="你的关系" type="Label" parent="MarginContainer3/文本框/其他属性文本框/VBoxContainer/关系框"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+text = "你的关系："
+vertical_alignment = 1
+
+[node name="父母" type="HBoxContainer" parent="MarginContainer3/文本框/其他属性文本框/VBoxContainer/关系框"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="父" type="HBoxContainer" parent="MarginContainer3/文本框/其他属性文本框/VBoxContainer/关系框/父母"]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="父" type="Label" parent="MarginContainer3/文本框/其他属性文本框/VBoxContainer/关系框/父母/父"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "父亲："
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="父亲数" type="SpinBox" parent="MarginContainer3/文本框/其他属性文本框/VBoxContainer/关系框/父母/父"]
+layout_mode = 2
+max_value = 2.0
+alignment = 1
+
+[node name="人" type="Label" parent="MarginContainer3/文本框/其他属性文本框/VBoxContainer/关系框/父母/父"]
+layout_mode = 2
+text = "人"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="母" type="HBoxContainer" parent="MarginContainer3/文本框/其他属性文本框/VBoxContainer/关系框/父母"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="母" type="Label" parent="MarginContainer3/文本框/其他属性文本框/VBoxContainer/关系框/父母/母"]
+layout_mode = 2
+text = "母亲："
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="母亲数" type="SpinBox" parent="MarginContainer3/文本框/其他属性文本框/VBoxContainer/关系框/父母/母"]
+layout_mode = 2
+max_value = 2.0
+alignment = 1
+
+[node name="人" type="Label" parent="MarginContainer3/文本框/其他属性文本框/VBoxContainer/关系框/父母/母"]
+layout_mode = 2
+text = "人"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="兄弟姐妹" type="HBoxContainer" parent="MarginContainer3/文本框/其他属性文本框/VBoxContainer/关系框"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="兄弟" type="HBoxContainer" parent="MarginContainer3/文本框/其他属性文本框/VBoxContainer/关系框/兄弟姐妹"]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="兄弟" type="Label" parent="MarginContainer3/文本框/其他属性文本框/VBoxContainer/关系框/兄弟姐妹/兄弟"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "兄弟："
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="兄弟数" type="SpinBox" parent="MarginContainer3/文本框/其他属性文本框/VBoxContainer/关系框/兄弟姐妹/兄弟"]
+layout_mode = 2
+max_value = 3.0
+alignment = 1
+
+[node name="人" type="Label" parent="MarginContainer3/文本框/其他属性文本框/VBoxContainer/关系框/兄弟姐妹/兄弟"]
+layout_mode = 2
+text = "人"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="姐妹" type="HBoxContainer" parent="MarginContainer3/文本框/其他属性文本框/VBoxContainer/关系框/兄弟姐妹"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="姐妹" type="Label" parent="MarginContainer3/文本框/其他属性文本框/VBoxContainer/关系框/兄弟姐妹/姐妹"]
+layout_mode = 2
+text = "姐妹："
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="姐妹数" type="SpinBox" parent="MarginContainer3/文本框/其他属性文本框/VBoxContainer/关系框/兄弟姐妹/姐妹"]
+layout_mode = 2
+max_value = 3.0
+alignment = 1
+
+[node name="人" type="Label" parent="MarginContainer3/文本框/其他属性文本框/VBoxContainer/关系框/兄弟姐妹/姐妹"]
+layout_mode = 2
+text = "人"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="名称和姓氏框" type="VBoxContainer" parent="MarginContainer3/文本框/其他属性文本框/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 7
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer3/文本框/其他属性文本框/VBoxContainer/名称和姓氏框"]
+custom_minimum_size = Vector2(900, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 10
+
+[node name="主角名称" type="Label" parent="MarginContainer3/文本框/其他属性文本框/VBoxContainer/名称和姓氏框/HBoxContainer"]
+custom_minimum_size = Vector2(210, 70)
+layout_mode = 2
+size_flags_horizontal = 2
+text = "你的名称和姓氏是"
+vertical_alignment = 1
+
+[node name="输入主角名称" type="TextEdit" parent="MarginContainer3/文本框/其他属性文本框/VBoxContainer/名称和姓氏框/HBoxContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 24
+placeholder_text = "名称"
+
+[node name="输入主角姓氏" type="TextEdit" parent="MarginContainer3/文本框/其他属性文本框/VBoxContainer/名称和姓氏框/HBoxContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 24
+placeholder_text = "姓氏"
+
+[node name="随机主角名称风格选择" type="OptionButton" parent="MarginContainer3/文本框/其他属性文本框/VBoxContainer/名称和姓氏框/HBoxContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 15
+alignment = 1
+item_count = 3
+selected = 0
+popup/item_0/text = "中式"
+popup/item_0/id = 0
+popup/item_1/text = "日本"
+popup/item_1/id = 1
+popup/item_2/text = "欧洲"
+popup/item_2/id = 2
+
+[node name="随机主角名称" type="TextureButton" parent="MarginContainer3/文本框/其他属性文本框/VBoxContainer/名称和姓氏框/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+texture_normal = ExtResource("6_arpee")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="排版" type="Label" parent="MarginContainer3/文本框/其他属性文本框/VBoxContainer/名称和姓氏框/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="名字形式选择" type="HBoxContainer" parent="MarginContainer3/文本框/其他属性文本框/VBoxContainer/名称和姓氏框"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme = ExtResource("8_j8avv")
+theme_override_constants/separation = 20
+
+[node name="显示" type="Label" parent="MarginContainer3/文本框/其他属性文本框/VBoxContainer/名称和姓氏框/名字形式选择"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.976471, 0.694118, 0.305882, 1)
+theme_override_fonts/font = ExtResource("7_5chab")
+theme_override_font_sizes/font_size = 20
+text = "你的名字是"
+vertical_alignment = 1
+
+[node name="中方" type="Button" parent="MarginContainer3/文本框/其他属性文本框/VBoxContainer/名称和姓氏框/名字形式选择"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 4
+toggle_mode = true
+button_pressed = true
+button_group = ExtResource("8_vxp1x")
+text = "中方形式"
+
+[node name="Label" type="Label" parent="MarginContainer3/文本框/其他属性文本框/VBoxContainer/名称和姓氏框/名字形式选择"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.976471, 0.694118, 0.305882, 1)
+theme_override_fonts/font = ExtResource("7_5chab")
+theme_override_font_sizes/font_size = 20
+text = "or"
+
+[node name="西方" type="Button" parent="MarginContainer3/文本框/其他属性文本框/VBoxContainer/名称和姓氏框/名字形式选择"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 4
+toggle_mode = true
+button_pressed = true
+button_group = ExtResource("8_vxp1x")
+text = "西方形式"
+
+[node name="新名称和姓氏注释" type="HBoxContainer" parent="MarginContainer3/文本框/其他属性文本框/VBoxContainer/名称和姓氏框"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("8_j8avv")
+theme_override_constants/separation = 0
+
+[node name="新名称" type="RichTextLabel" parent="MarginContainer3/文本框/其他属性文本框/VBoxContainer/名称和姓氏框/新名称和姓氏注释"]
+clip_contents = false
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+
+[node name="新姓氏" type="RichTextLabel" parent="MarginContainer3/文本框/其他属性文本框/VBoxContainer/名称和姓氏框/新名称和姓氏注释"]
+clip_contents = false
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+fit_content = true
+scroll_active = false
+
+[connection signal="confirmed" from="警告" to="." method="_on_警告_confirmed"]
+[connection signal="pressed" from="MarginContainer3/选择页/VBoxContainer2/全部随机" to="." method="_on_全部随机_pressed"]
+[connection signal="pressed" from="MarginContainer3/选择页/VBoxContainer/基础属性" to="." method="_on_基础属性_pressed"]
+[connection signal="pressed" from="MarginContainer3/选择页/VBoxContainer/外貌" to="." method="_on_外貌_pressed"]
+[connection signal="pressed" from="MarginContainer3/选择页/VBoxContainer/特质" to="." method="_on_特质_pressed"]
+[connection signal="pressed" from="MarginContainer3/选择页/VBoxContainer/其他属性" to="." method="_on_其他属性_pressed"]
+[connection signal="pressed" from="MarginContainer3/选择页/VBoxContainer3/确定" to="." method="_on_确定_pressed"]
+[connection signal="pressed" from="MarginContainer3/文本框/基础属性文本框/VBoxContainer/HBoxContainer/基础页随机" to="." method="_on_基础页随机_pressed"]
+[connection signal="pressed" from="MarginContainer3/文本框/基础属性文本框/VBoxContainer/性别框/HBoxContainer/HBoxContainer2/男性" to="." method="_on_性别选择_pressed"]
+[connection signal="pressed" from="MarginContainer3/文本框/基础属性文本框/VBoxContainer/性别框/HBoxContainer/HBoxContainer2/女性" to="." method="_on_性别选择_pressed"]
+[connection signal="pressed" from="MarginContainer3/文本框/基础属性文本框/VBoxContainer/性别框/HBoxContainer/HBoxContainer2/双性" to="." method="_on_性别选择_pressed"]
+[connection signal="pressed" from="MarginContainer3/文本框/基础属性文本框/VBoxContainer/性别框/HBoxContainer/HBoxContainer2/扶她" to="." method="_on_性别选择_pressed"]
+[connection signal="pressed" from="MarginContainer3/文本框/基础属性文本框/VBoxContainer/性向框/性向按钮组/性向选择一" to="." method="_on_性向选择_pressed"]
+[connection signal="value_changed" from="MarginContainer3/文本框/基础属性文本框/VBoxContainer/年龄框/年龄选择框/主角年龄" to="." method="_on_主角年龄_value_changed"]
+[connection signal="pressed" from="MarginContainer3/文本框/基础属性文本框/VBoxContainer/信仰框/HBoxContainer/信仰选择/信仰一" to="." method="_on_信仰选择_pressed"]
+[connection signal="pressed" from="MarginContainer3/文本框/基础属性文本框/VBoxContainer/信仰框/HBoxContainer/信仰选择/信仰二" to="." method="_on_信仰选择_pressed"]
+[connection signal="pressed" from="MarginContainer3/文本框/基础属性文本框/VBoxContainer/信仰框/HBoxContainer/信仰选择/信仰三" to="." method="_on_信仰选择_pressed"]
+[connection signal="pressed" from="MarginContainer3/文本框/基础属性文本框/VBoxContainer/种族框/HBoxContainer/种族组/种族一" to="." method="_on_种族选择_pressed"]
+[connection signal="pressed" from="MarginContainer3/文本框/基础属性文本框/VBoxContainer/出身框/出身按钮组/出身选择" to="." method="_on_出身选择_pressed"]
+[connection signal="pressed" from="MarginContainer3/文本框/基础属性文本框/VBoxContainer/身份框/身份按钮组/身份选择" to="." method="_on_身份选择_pressed"]
+[connection signal="pressed" from="MarginContainer3/文本框/外貌文本框/VBoxContainer/HBoxContainer/外貌页随机" to="." method="_on_外貌页随机_pressed"]
+[connection signal="pressed" from="MarginContainer3/文本框/外貌文本框/VBoxContainer/外貌颜色框/发色框/发色按钮组/发色按钮一" to="." method="_on_发色选择_pressed"]
+[connection signal="pressed" from="MarginContainer3/文本框/外貌文本框/VBoxContainer/外貌颜色框/瞳色框/瞳色按钮组/瞳色按钮一" to="." method="_on_瞳色选择_pressed"]
+[connection signal="pressed" from="MarginContainer3/文本框/外貌文本框/VBoxContainer/外貌颜色框/肤色框/肤色按钮组/肤色按钮一" to="." method="_on_肤色选择_pressed"]
+[connection signal="pressed" from="MarginContainer3/文本框/外貌文本框/VBoxContainer/外貌颜色框/身材框/身材按钮组/身材按钮一" to="." method="_on_身材选择_pressed"]
+[connection signal="pressed" from="MarginContainer3/文本框/特质文本框/VBoxContainer/HBoxContainer/特质页随机" to="." method="_on_特质页随机_pressed"]
+[connection signal="pressed" from="MarginContainer3/文本框/特质文本框/VBoxContainer/性怪癖/VBoxContainer/性怪癖清除" to="." method="_on_性怪癖清除_pressed"]
+[connection signal="pressed" from="MarginContainer3/文本框/特质文本框/VBoxContainer/性能力/VBoxContainer/性能力清除" to="." method="_on_性能力清除_pressed"]
+[connection signal="pressed" from="MarginContainer3/文本框/特质文本框/VBoxContainer/症状/VBoxContainer/症状清除" to="." method="_on_症状清除_pressed"]
+[connection signal="pressed" from="MarginContainer3/文本框/其他属性文本框/VBoxContainer/HBoxContainer/其他属性页随机" to="." method="_on_其他属性页随机_pressed"]
+[connection signal="value_changed" from="MarginContainer3/文本框/其他属性文本框/VBoxContainer/关系框/父母/父/父亲数" to="." method="_on_父亲数_value_changed"]
+[connection signal="value_changed" from="MarginContainer3/文本框/其他属性文本框/VBoxContainer/关系框/父母/母/母亲数" to="." method="_on_母亲数_value_changed"]
+[connection signal="value_changed" from="MarginContainer3/文本框/其他属性文本框/VBoxContainer/关系框/兄弟姐妹/兄弟/兄弟数" to="." method="_on_兄弟数_value_changed"]
+[connection signal="value_changed" from="MarginContainer3/文本框/其他属性文本框/VBoxContainer/关系框/兄弟姐妹/姐妹/姐妹数" to="." method="_on_姐妹数_value_changed"]
+[connection signal="text_changed" from="MarginContainer3/文本框/其他属性文本框/VBoxContainer/名称和姓氏框/HBoxContainer/输入主角名称" to="." method="_on_输入主角名称_text_changed"]
+[connection signal="text_changed" from="MarginContainer3/文本框/其他属性文本框/VBoxContainer/名称和姓氏框/HBoxContainer/输入主角姓氏" to="." method="_on_输入主角姓氏_text_changed"]
+[connection signal="item_selected" from="MarginContainer3/文本框/其他属性文本框/VBoxContainer/名称和姓氏框/HBoxContainer/随机主角名称风格选择" to="." method="_on_随机主角名称风格选择_item_selected"]
+[connection signal="pressed" from="MarginContainer3/文本框/其他属性文本框/VBoxContainer/名称和姓氏框/HBoxContainer/随机主角名称" to="." method="_on_随机主角名称_pressed"]
+[connection signal="pressed" from="MarginContainer3/文本框/其他属性文本框/VBoxContainer/名称和姓氏框/名字形式选择/中方" to="." method="名字姓氏确定"]
+[connection signal="pressed" from="MarginContainer3/文本框/其他属性文本框/VBoxContainer/名称和姓氏框/名字形式选择/西方" to="." method="名字姓氏确定"]

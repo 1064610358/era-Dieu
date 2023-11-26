@@ -1,0 +1,103 @@
+[gd_scene load_steps=8 format=3 uid="uid://dhujxlep14xy0"]
+
+[ext_resource type="Script" path="res://场景/开始界面/更新日志.gd" id="1_3fwyp"]
+[ext_resource type="Texture2D" uid="uid://cgk6fae4vee3h" path="res://picture/bigmap/0.png" id="2_a8u23"]
+[ext_resource type="FontFile" uid="uid://sphv6ktfgqoi" path="res://字体/SourceHanSansCN-Bold_0.otf" id="3_6wx6h"]
+[ext_resource type="Theme" uid="uid://cjjsowv3mavdh" path="res://ui主题/ui.tres" id="3_lytbd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_84frn"]
+bg_color = Color(0.976563, 0.894531, 0.804688, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_r21f7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2e357"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+texture = SubResource("CanvasTexture_r21f7")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+modulate_color = Color(0.980392, 0.898039, 0.807843, 1)
+
+[node name="更新日志" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3fwyp")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_a8u23")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -553.0
+offset_top = 21.0
+offset_right = 547.0
+offset_bottom = 581.0
+grow_horizontal = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="TextureRect/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_6wx6h")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_84frn")
+text = "更新日志"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="ScrollContainer" parent="TextureRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="文本显示框" type="RichTextLabel" parent="TextureRect/MarginContainer/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(1100, 500)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_6wx6h")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxTexture_2e357")
+bbcode_enabled = true
+text = "[center]放到 "
+
+[node name="Button" type="Button" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -39.0
+offset_top = -64.0
+offset_right = 29.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("3_lytbd")
+text = "返回"
+
+[connection signal="pressed" from="TextureRect/Button" to="." method="_on_button_pressed"]

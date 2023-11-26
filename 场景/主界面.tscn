@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=3 uid="uid://22h8yqofwdwd"]
+
+[ext_resource type="Script" path="res://场景/主界面.gd" id="2_6rr4b"]
+
+[node name="主界面" type="TextureRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+script = ExtResource("2_6rr4b")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.976471, 0.87451, 0.658824, 1)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -141.0
+grow_horizontal = 2
+grow_vertical = 0
+expand_mode = 1
+
+[node name="Label" type="Label" parent="TextureRect"]
+modulate = Color(0.270588, 0.156863, 0.0235294, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 72.0
+offset_top = 18.0
+offset_right = -62.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "对话"
+horizontal_alignment = 1

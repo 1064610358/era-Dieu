@@ -1,0 +1,245 @@
+[gd_scene load_steps=7 format=3 uid="uid://cfy75xp6afotj"]
+
+[ext_resource type="Theme" uid="uid://rw1sx6svwe7i" path="res://ui主题/初始选择ui.tres" id="1_0e4p7"]
+[ext_resource type="Script" path="res://场景/模式选择.gd" id="1_3etlw"]
+[ext_resource type="ButtonGroup" uid="uid://il0ngukmtopk" path="res://ui主题/按钮组/游戏难度选择.tres" id="3_31utb"]
+[ext_resource type="ButtonGroup" uid="uid://b38il4i6xx4yg" path="res://ui主题/按钮组/名字姓氏二.tres" id="3_goeoi"]
+[ext_resource type="Theme" uid="uid://ceqqrq7cga582" path="res://ui主题/初始选择注释部分ui.tres" id="4_mmhh4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jhdrk"]
+bg_color = Color(0.839216, 0.839216, 0.839216, 0.235294)
+border_width_right = 1
+border_color = Color(0.996078, 0.976471, 0.980392, 1)
+border_blend = true
+
+[node name="模式选择" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3etlw")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme = ExtResource("1_0e4p7")
+
+[node name="角色栏" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer/HBoxContainer/角色栏"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jhdrk")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/角色栏"]
+layout_mode = 2
+
+[node name="角色框" type="Label" parent="MarginContainer/HBoxContainer/角色栏/VBoxContainer"]
+layout_mode = 2
+text = "你"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="立绘" type="TextureRect" parent="MarginContainer/HBoxContainer/角色栏/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+expand_mode = 1
+
+[node name="名称和姓氏" type="Label" parent="MarginContainer/HBoxContainer/角色栏/VBoxContainer"]
+layout_mode = 2
+text = "你的名称和姓氏是"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/角色栏/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 5
+
+[node name="输入名称" type="TextEdit" parent="MarginContainer/HBoxContainer/角色栏/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(120, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+placeholder_text = "名称"
+scroll_fit_content_height = true
+
+[node name="输入姓氏" type="TextEdit" parent="MarginContainer/HBoxContainer/角色栏/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(130, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+placeholder_text = "姓氏"
+scroll_fit_content_height = true
+
+[node name="属性文本框" type="RichTextLabel" parent="MarginContainer/HBoxContainer/角色栏/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="模式选择页" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Panel" type="Panel" parent="MarginContainer/HBoxContainer/模式选择页"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/模式选择页"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 20
+
+[node name="模式选择" type="Label" parent="MarginContainer/HBoxContainer/模式选择页/VBoxContainer"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "模式选择"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="游戏开关框" type="HBoxContainer" parent="MarginContainer/HBoxContainer/模式选择页/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 30
+
+[node name="开关" type="Label" parent="MarginContainer/HBoxContainer/模式选择页/VBoxContainer/游戏开关框"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "游戏开关（默认为关闭）:"
+vertical_alignment = 1
+
+[node name="R18开关" type="CheckButton" parent="MarginContainer/HBoxContainer/模式选择页/VBoxContainer/游戏开关框"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "R18"
+alignment = 1
+
+[node name="R18G开关" type="CheckButton" parent="MarginContainer/HBoxContainer/模式选择页/VBoxContainer/游戏开关框"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "R18G"
+alignment = 1
+
+[node name="名称和姓氏" type="HBoxContainer" parent="MarginContainer/HBoxContainer/模式选择页/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 10
+
+[node name="全名" type="Label" parent="MarginContainer/HBoxContainer/模式选择页/VBoxContainer/名称和姓氏"]
+layout_mode = 2
+text = "你的全名是："
+
+[node name="西方" type="Button" parent="MarginContainer/HBoxContainer/模式选择页/VBoxContainer/名称和姓氏"]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("3_goeoi")
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/模式选择页/VBoxContainer/名称和姓氏"]
+layout_mode = 2
+text = "or"
+
+[node name="中方" type="Button" parent="MarginContainer/HBoxContainer/模式选择页/VBoxContainer/名称和姓氏"]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("3_goeoi")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/HBoxContainer/模式选择页/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("4_mmhh4")
+theme_override_constants/separation = 5
+
+[node name="新名称" type="RichTextLabel" parent="MarginContainer/HBoxContainer/模式选择页/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+scroll_active = false
+
+[node name="新姓氏" type="RichTextLabel" parent="MarginContainer/HBoxContainer/模式选择页/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+scroll_active = false
+
+[node name="你的身份" type="Label" parent="MarginContainer/HBoxContainer/模式选择页/VBoxContainer"]
+layout_mode = 2
+text = "你的身份是："
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="属性生成选择" type="HBoxContainer" parent="MarginContainer/HBoxContainer/模式选择页/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 30
+
+[node name="全部随机" type="Button" parent="MarginContainer/HBoxContainer/模式选择页/VBoxContainer/属性生成选择"]
+custom_minimum_size = Vector2(100, 60)
+layout_mode = 2
+text = "随机"
+
+[node name="自定义" type="Button" parent="MarginContainer/HBoxContainer/模式选择页/VBoxContainer/属性生成选择"]
+custom_minimum_size = Vector2(100, 60)
+layout_mode = 2
+text = "自定义"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/模式选择页/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="游戏难度" type="Label" parent="MarginContainer/HBoxContainer/模式选择页/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "游戏难度："
+vertical_alignment = 1
+
+[node name="游戏难度按钮组" type="HBoxContainer" parent="MarginContainer/HBoxContainer/模式选择页/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/模式选择页/VBoxContainer/HBoxContainer/游戏难度按钮组"]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("3_31utb")
+
+[node name="游戏难度注释" type="Label" parent="MarginContainer/HBoxContainer/模式选择页/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_mmhh4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/模式选择页/VBoxContainer"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="进入游戏" type="Button" parent="MarginContainer/HBoxContainer/模式选择页/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 10
+text = "进入游戏"
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/模式选择页/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[connection signal="text_changed" from="MarginContainer/HBoxContainer/角色栏/VBoxContainer/HBoxContainer/输入名称" to="." method="_on_输入名称_text_changed"]
+[connection signal="text_changed" from="MarginContainer/HBoxContainer/角色栏/VBoxContainer/HBoxContainer/输入姓氏" to="." method="_on_输入姓氏_text_changed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/模式选择页/VBoxContainer/名称和姓氏/西方" to="." method="全名选择"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/模式选择页/VBoxContainer/名称和姓氏/中方" to="." method="全名选择"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/模式选择页/VBoxContainer/属性生成选择/全部随机" to="." method="_on_全部随机_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/模式选择页/VBoxContainer/属性生成选择/自定义" to="." method="_on_自定义_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/模式选择页/VBoxContainer/HBoxContainer/游戏难度按钮组/Button" to="." method="游戏难度选择"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/模式选择页/VBoxContainer/MarginContainer/进入游戏" to="." method="_on_进入游戏_pressed"]
